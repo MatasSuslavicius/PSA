@@ -46,8 +46,9 @@ const AdminHome = () => {
                             <p>{"Aprašymas: " + place.description}</p>
                             <p>{"Kaina: " + place.price}</p>
                             <Link to={{
-                                    pathname: '/comments',
-                                    state: place.id
+                                      pathname: '/comments',
+                                      state: place.id,
+                                      name: place.name
                                 }} className='link'>Komentarai</Link>
                             <Link to={{
                                     pathname: '/placeEdit',
