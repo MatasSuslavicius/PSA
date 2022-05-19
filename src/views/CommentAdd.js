@@ -61,7 +61,7 @@ export default class CommentAdd extends Component {
                 />
                 <div className="card">
                     <h1>{this.state.placeName}</h1>
-                    <h1>Įveskite komentarą</h1>
+                    <h2>Įveskite komentarą</h2>
                     <br />
                     <div className="input-group mb-3">
                         <input type="text" className="form-control" placeholder="Komentaras" aria-label="Text"
