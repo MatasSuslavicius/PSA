@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import './App.css'
 import { BrowserRouter, Route,  Switch, Redirect} from 'react-router-dom'
 import Comments from './views/Comments'
+import CommentEdit from './views/CommentEdit'
+import CommentAdd from './views/CommentAdd'
 import Home from './views/Home'
 import AdminHome from './AdminViews/AdminHome'
 import AdminPlaces from './AdminViews/AdminPlaces'
+import AdminComments from './AdminViews/AdminComments'
 import PlaceEdit from './AdminViews/PlaceEdit'
 import PlaceAdd from './AdminViews/PlaceAdd'
 import GuideProfile from './GuideViews/GuideProfile'
@@ -13,9 +16,11 @@ import GuideEdit from './GuideViews/GuideEdit'
 import GuideHome from './GuideViews/GuideHome'
 import GuideRate from './GuideViews/GuideRate'
 import GuideRoutes from './GuideViews/GuideRoutes'
+
 import LoginForm from './views/Login'
 import RateGuide from './ClientViews/RateGuide'
 import ClientNavBar from './ClientViews/ClientNavBar'
+import ClientHome from './ClientViews/ClientHome'
 import NavBar from './components/NavBar'
 
 function App(props, state) {
@@ -65,10 +70,12 @@ function App(props, state) {
             <NavBar Logout={Logout} />
             <Switch>
               <Route exact path='/' component={AdminHome} />
-              <Route path='/comments' component={Comments} />
+              <Route path='/comments' component={AdminComments} />
               <Route path='/places' component={AdminPlaces} />
               <Route path='/placeEdit' component={PlaceEdit} />
               <Route path='/placeAdd' component={PlaceAdd} />
+              <Route path='/commentEdit' component={CommentEdit} />
+              <Route path='/commentAdd' component={CommentAdd} />
 
             </Switch>
           </BrowserRouter>
@@ -84,6 +91,8 @@ function App(props, state) {
               <Route path='/guideEdit' component={GuideEdit} />
               <Route path='/guideRate' component={GuideRate} />
               <Route path='/guideRoutes' component={GuideRoutes} />
+              <Route path='/commentEdit' component={CommentEdit} />
+              <Route path='/commentAdd' component={CommentAdd} />
             </Switch>
           </BrowserRouter>
           )
@@ -92,9 +101,11 @@ function App(props, state) {
               <BrowserRouter>
                 <ClientNavBar Logout={Logout} />
                 <Switch>
-                  <Route exact path='/' component={Home} />
+                  <Route exact path='/' component={ClientHome} />
                   <Route path='/comments' component={Comments} />
                   <Route path='/rateGuide' component={RateGuide} />
+                  <Route path='/commentEdit' component={CommentEdit} />
+                  <Route path='/commentAdd' component={CommentAdd} />
                 </Switch>
               </BrowserRouter>
             )

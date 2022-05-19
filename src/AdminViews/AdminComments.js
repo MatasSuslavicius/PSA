@@ -5,7 +5,7 @@ import './../components/table.css'
 import "./../App.css";
 
 
-export default class Comments extends Component {
+export default class AdminComments extends Component {
     constructor(props) {
         const placeId =  props.location.state;
         const placeName =  props.location.name;
@@ -14,7 +14,7 @@ export default class Comments extends Component {
             DataisLoaded: true,
             placeId:  props.location.state,
             placeName: props.location.name,//cia
-            userId:  1,
+            userId:  2,//yay hardcode
             comments:[],
             Text:""
         }
@@ -38,7 +38,18 @@ async componentDidMount() {
     }
 
 }
+deleteClick(commentId) {
+    fetch('https://localhost:7226/api/Comments/'+ commentId, {
+        method: 'DELETE'
+    })
+        .then(res => res.json())
+        .then((result) => {
+            
+        }, (error) => {
 
+        });
+        console.log("deleted")
+}
     render() {
         const {
             placeId,
@@ -62,14 +73,13 @@ async componentDidMount() {
                         <tbody>
                             {comments.map(comment => <tr key={comment.id}>
                                 <td className="title">{comment.text}</td>
-                                {(comment.userId == this.state.userId) &&
-                                    <td><Link to={{
+                                <td><Link to={{
                                         pathname: '/commentEdit',
                                         state: comment,
                                         placeId: this.state.placeId,
                                         placeName: this.state.placeName
                                     }} className='link'>Redaguoti</Link></td>
-                                }
+                                   <td> <button className="link" onClick={() => this.deleteClick(comment.id)}>Pašalinti</button></td>
 
 
                             </tr>)}

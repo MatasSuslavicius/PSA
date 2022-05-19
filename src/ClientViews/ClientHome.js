@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 //function MapView()
-const GuideHome = () => {
+const ClientHome = () => {
     const [repo, setRepo] = useState([]);
 
     useEffect(() => { async function getRepo (){
@@ -59,4 +59,4 @@ const GuideHome = () => {
         </div>
     )
 }
-export default GuideHome
+export default ClientHome
