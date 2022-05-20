@@ -24,6 +24,7 @@ import ClientHome from './ClientViews/ClientHome'
 import GuideSelection from './ClientViews/GuideSelection'
 import PaymentRoute from './ClientViews/PaymentRoute'
 import ClientRoutes from './ClientViews/ClientRoutes'
+import RouteDetailed from './ClientViews/RouteDetailed'
 import NavBar from './components/NavBar'
 
 function App(props, state) {
@@ -112,6 +113,7 @@ function App(props, state) {
                   <Route path='/guideSelection' component={GuideSelection} />
                   <Route path='/paymentRoute' component={PaymentRoute} />
                   <Route path='/clientRoutes' component={ClientRoutes} />
+                  <Route path='/routeDetailed' component={RouteDetailed} />
                 </Switch>
               </BrowserRouter>
             )

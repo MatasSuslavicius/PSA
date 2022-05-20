@@ -1,10 +1,36 @@
-import React, { Component, useMemo } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component, useEffect, useMemo } from 'react'
+import {useHistory,  Link } from 'react-router-dom'
 import axios from 'axios'
 import './../components/table.css'
 import "./../components/guide.css";
+import { useTimer } from 'react-timer-hook';
 
+function MyTimer({ expiryTimestamp }) {
+    const {
+      seconds,
+      minutes,
+      hours,
+      days,
+      isRunning,
+      start,
+      pause,
+      resume,
+      restart,
+    } = useTimer({ expiryTimestamp, onExpire: () => loadHome() });
+    const history = useHistory();
 
+    function loadHome() {
+      history.push("/");
+    }
+  
+    return (
+      <div style={{textAlign: 'center'}}>
+        <div style={{fontSize: '30px'}}>
+          <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+        </div>
+      </div>
+    );
+  }
 export default class PaymentRoute extends Component {
     constructor(props) {
         super(props);
@@ -61,9 +87,12 @@ export default class PaymentRoute extends Component {
             AccountNumber,
             Reason,
         } = this.state;
-
+        
+          const time = new Date();
+          time.setSeconds(time.getSeconds() + 600);
         return (
             <div>
+                <MyTimer expiryTimestamp={time} />
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -143,7 +172,7 @@ export default class PaymentRoute extends Component {
                           onChange={this.changeReason} />
                     </div>
 
-                        <button className='link' onClick={() =>this.createClick()}>Apmokėti</button>
+                        <Link  to="/clientRoutes" className='link' onClick={() =>this.createClick()}>Apmokėti</Link>
                     
                     
 

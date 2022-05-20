@@ -5,16 +5,16 @@ import './../components/table.css'
 import "./../App.css";
 
 
-export default class GuideRate extends Component {//TODO : PAKEISTI KUR NUVEDA PASPAUDUS "Ivertinti". TURI BUTI I ROUTE DETAILED
-    //TODO : PAKEISTI KAD GUIDEID ATEITU IS DETAILED ROUTE GIDO
+export default class GuideRate extends Component {
     constructor(props) {
         super(props);
-        //const GuideId =  props.location.state;-----------------------
+        const GuideId =  props.location.state;
+        const route =  props.location.route;
         this.state = {
             GuideRate: "",
             DataisLoaded: true,
-            GuideId: 3
-            //GuideId: props.location.state------------------------
+            GuideId: props.location.state,
+            route: props.location.route,
         }
 
     }
@@ -55,7 +55,10 @@ export default class GuideRate extends Component {//TODO : PAKEISTI KUR NUVEDA P
                             onChange={this.changeGuideRate} />
                     </div>
 
-                    <Link to="/routeDetailed" onClick={() => this.rateClick()}>
+                    <Link to={{
+                                    pathname: '/routeDetailed',
+                                    route: this.state.route
+                                }} onClick={() => this.rateClick()}>
                         Įvertinti
                     </Link>
                 </div>

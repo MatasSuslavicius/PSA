@@ -11,9 +11,7 @@ export default class ClientRoutes extends Component {
         this.state = {
             routes: [],
             DataisLoaded: true,
-            GuideId: 2,
-            place: "",
-            PlaceisLoaded: true,
+            ClientId: 2
         }
 
     }
@@ -23,7 +21,7 @@ export default class ClientRoutes extends Component {
         if (this.state.DataisLoaded) {
 
             try {
-                const response = await axios.get('https://localhost:7226/api/guide/' + this.state.GuideId + '/routes')
+                const response = await axios.get('https://localhost:7226/api/client/' + this.state.ClientId + '/routes')
                 const data = await response.data
                 this.setState({
                     
@@ -43,7 +41,6 @@ export default class ClientRoutes extends Component {
         let place;
         const {
             routes,
-            PlaceisLoaded,
         } = this.state;
         console.log(routes);
 
@@ -54,7 +51,7 @@ export default class ClientRoutes extends Component {
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
                 <div className="card">
-                    <h1>Priskirti maršrutai</h1>
+                    <h1>Jūsų maršrutai</h1>
                     {routes.map(route => 
                     <div key={route.id}>
                         <br/>
@@ -107,8 +104,18 @@ export default class ClientRoutes extends Component {
                             </tbody>
                             )}
                         </table>
-                    
-                        <button className='link'>Atšaukti maršrutą</button>
+                        {
+                            route.isGuideChosen == true ? (
+                                <h3 className="title">Jūsų maršrutui yra priskirtas gidas</h3>
+                            ) : (
+                                <h3 className="title">Jūsų maršrutui nėra priskirtas gidas</h3>
+                            )
+                        }
+                
+                        <Link className='link' to={{
+                                    pathname: '/routeDetailed',
+                                    route: route
+                                }}>Detalesnė informacija</Link>
                         </div>
                     )}
                     

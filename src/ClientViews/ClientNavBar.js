@@ -7,7 +7,6 @@ const ClientNavBar = () => {
         <div className="links">
           <Link to="/">Atgal į pradžią   </Link>
           <Link to="/clientRoutes">Jūsų maršrutai</Link>
-          <Link to="/rateGuide">ĮvertintiGidąTIDI</Link>
         </div>
       </nav>
     );
