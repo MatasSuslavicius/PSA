@@ -5,13 +5,13 @@ import './../components/table.css'
 import "./../components/guide.css";
 
 
-export default class GuideRoutes extends Component {
+export default class ClientRoutes extends Component {
     constructor(props) {
         super(props);
         this.state = {
             routes: [],
             DataisLoaded: true,
-            GuideId: 3,
+            GuideId: 2,
             place: "",
             PlaceisLoaded: true,
         }

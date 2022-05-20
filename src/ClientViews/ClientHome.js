@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {MapContainer, Map, TileLayer, Marker, Popup} from 'react-leaflet'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import SelectTable from '../components/SelectTable'
 
 //function MapView()
 const ClientHome = () => {
@@ -54,6 +55,7 @@ const ClientHome = () => {
                 </Marker>
             ))}
         </MapContainer>
+        <SelectTable/>
         
 
         </div>

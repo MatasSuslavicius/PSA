@@ -57,7 +57,7 @@ async componentDidMount() {
                     <h1>{this.state.placeName}</h1>
                     <h2>Komentarai:</h2>
                     
-                    <br /><br />
+                    <br />
                     <table>
                         <tbody>
                             {comments.map(comment => <tr key={comment.id}>

@@ -5,8 +5,9 @@ const ClientNavBar = () => {
       <nav className="navbar">
         <h1>Atostogų planavimas Lietuvoje</h1>
         <div className="links">
-          <Link to="/">Atgal į pradžią</Link>
-          <Link to="/rateGuide">ĮvertintiGidą(turi buti marsrute)</Link>
+          <Link to="/">Atgal į pradžią   </Link>
+          <Link to="/clientRoutes">Jūsų maršrutai</Link>
+          <Link to="/rateGuide">ĮvertintiGidąTIDI</Link>
         </div>
       </nav>
     );

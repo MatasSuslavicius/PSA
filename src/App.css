@@ -42,8 +42,8 @@
 
 
 .leaflet-container{
-  margin: 20px 50px 0px 30px;
-  width: 60vw;
+  width: 90%;
+  margin: 20px 50px 20px 20px;
   height: 80vh;
 }
 .link{

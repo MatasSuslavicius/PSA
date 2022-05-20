@@ -21,6 +21,9 @@ import LoginForm from './views/Login'
 import RateGuide from './ClientViews/RateGuide'
 import ClientNavBar from './ClientViews/ClientNavBar'
 import ClientHome from './ClientViews/ClientHome'
+import GuideSelection from './ClientViews/GuideSelection'
+import PaymentRoute from './ClientViews/PaymentRoute'
+import ClientRoutes from './ClientViews/ClientRoutes'
 import NavBar from './components/NavBar'
 
 function App(props, state) {
@@ -106,6 +109,9 @@ function App(props, state) {
                   <Route path='/rateGuide' component={RateGuide} />
                   <Route path='/commentEdit' component={CommentEdit} />
                   <Route path='/commentAdd' component={CommentAdd} />
+                  <Route path='/guideSelection' component={GuideSelection} />
+                  <Route path='/paymentRoute' component={PaymentRoute} />
+                  <Route path='/clientRoutes' component={ClientRoutes} />
                 </Switch>
               </BrowserRouter>
             )
