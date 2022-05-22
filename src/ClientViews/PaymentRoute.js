@@ -91,18 +91,19 @@ export default class PaymentRoute extends Component {
           const time = new Date();
           time.setSeconds(time.getSeconds() + 600);
         return (
-            <div>
-                <MyTimer expiryTimestamp={time} />
+            <div className='commentsWrapper'>
+                
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
-                <div className="card">
+                <div className="comments">
+                <MyTimer expiryTimestamp={time} />
                     <h1>Sugeneruotas marštutas:</h1>
                     
                     <div>
                         <br/>
-                        <table>
+                        <table className='check'>
                             <thead>
                                 <tr>
                                     <th>
@@ -125,7 +126,7 @@ export default class PaymentRoute extends Component {
                             </tbody>
                         </table>
                         <h3 className="title">Objektų lankymo tvarka:</h3>
-                        <table>
+                        <table className='check'>
                             <thead>
                                 <tr>
                                     <th>
@@ -172,7 +173,7 @@ export default class PaymentRoute extends Component {
                           onChange={this.changeReason} />
                     </div>
 
-                        <Link  to="/clientRoutes" className='link' onClick={() =>this.createClick()}>Apmokėti</Link>
+                        <Link  to="/clientRoutes" className='commentsButton' onClick={() =>this.createClick()}>Apmokėti</Link>
                     
                     
 

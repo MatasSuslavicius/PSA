@@ -31,7 +31,7 @@ const ClientHome = () => {
             });
     }
     return (
-        <div>
+        <div className='mapWrapperClient'>
         <MapContainer center={[55.1694, 23.8813]} zoom={7} scrollWheelZoom={false}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -41,7 +41,7 @@ const ClientHome = () => {
                 <Marker key = {place.id} position={[place.coordinates.split(" ")[0], place.coordinates.split(" ")[1]]}>
                     <Popup>
                         <div>
-                            <h2>{"Pavadinimas: " + place.name}</h2>
+                            <h1 className='objectTitle'>{place.name}</h1>
                             <p>{"Adresas: " + place.address}</p>
                             <p>{"Aprašymas: " + place.description}</p>
                             <p>{"Kaina: " + place.price}</p>
@@ -49,14 +49,15 @@ const ClientHome = () => {
                                     pathname: '/comments',
                                     state: place.id,
                                     name: place.name
-                                }} className='link'>Komentarai</Link>
+                                }} className='commentsButton'>Komentarai</Link>
                         </div>
                     </Popup>
                 </Marker>
             ))}
         </MapContainer>
-        <SelectTable/>
-        
+        <div>
+            <SelectTable/>
+        </div>
 
         </div>
     )

@@ -8,9 +8,9 @@ import "./../App.css";
 export default class CommentAdd extends Component {
     constructor(props) {
         super(props);
-        const placeId =  props.location.state;
-        const userId =  props.location.userId;
-        const placeName =  props.location.name;
+        const placeId = props.location.state;
+        const userId = props.location.userId;
+        const placeName = props.location.name;
         this.state = {
             DataisLoaded: true,
             placeId: props.location.state,
@@ -22,7 +22,7 @@ export default class CommentAdd extends Component {
     }
 
     createClick() {
-        fetch('https://localhost:7226/api/Comments?placeId='+ this.state.placeId, {
+        fetch('https://localhost:7226/api/Comments?placeId=' + this.state.placeId, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -37,7 +37,7 @@ export default class CommentAdd extends Component {
             .then((result) => {
                 this._isMounted = false;
             }, (error) => {
-                
+
             })
     }
 
@@ -54,24 +54,24 @@ export default class CommentAdd extends Component {
         } = this.state;
 
         return (
-            <div>
+            <div className='commentsWrapper'>
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
-                <div className="card">
-                    <h1>{this.state.placeName}</h1>
-                    <h2>Įveskite komentarą</h2>
-                    <br />
-                    <div className="input-group mb-3">
-                        <input type="text" className="form-control" placeholder="Komentaras" aria-label="Text"
-                            onChange={this.changeText} />
+                <div className='comments'>
+                    <div className='commentTitleWrapper'>
+                        <h1 className='commentTitle'>{"Įveskite objektui " + this.state.placeName + " komentarą:"}</h1>
+
+                    </div>
+                    <div className='form-group'>
+                        <input className='form-control' placeholder='Komentaro tekstas' onChange={this.changeText}></input>
                     </div>
                     <Link to={{
-                                    pathname: '/comments',
-                                    state: this.state.placeId,
-                                    name: this.state.placeName,
-                                }} onClick={() => this.createClick()}>
+                        pathname: '/comments',
+                        state: this.state.placeId,
+                        name: this.state.placeName,
+                    }} className='commentsButton2' onClick={() => this.createClick()}>
                         Pridėti
                     </Link>
                 </div>

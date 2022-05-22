@@ -63,17 +63,16 @@ class SelectTable extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
+      <div className="">
+                      
+        <div className='objectTitleBorder'>
+          <h1 className='navbarTitle'>Pasirinkite objektus:</h1>
+        </div>
+                        
+                  
+        <div className="">
+          <div className="tableScroll">
             <table className="table">
-              <thead>
-                <tr>
-                  <th scope="col">
-                  </th>
-                  <th scope="col">Pavadinimas</th>
-                </tr>
-              </thead>
               <tbody>
                 {this.state.List.map((place) => (
                   <tr key={place.id}>
@@ -91,22 +90,21 @@ class SelectTable extends React.Component {
                 ))}
               </tbody>
             </table>
-                    {this.state.SelectedList.length > 0 ? (
+          </div>
+        </div>
+        {this.state.SelectedList.length > 0 ? (
                         <Link to={{
                             pathname: '/guideSelection',
                             state: this.state.SelectedList,
                             clientId: this.state.userId,
                         }}
-                            className="btn btn-primary">
+                            className="createButton">
                              Sukurti maršrutą ({this.state.SelectedList.length})
                         </Link>
                     ) : (
-                        <p>Pasirinkite objektus</p>
+                      null
+                        
                     )}
-
-            
-          </div>
-        </div>
       </div>
     );
   }

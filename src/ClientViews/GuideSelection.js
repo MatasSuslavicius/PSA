@@ -85,21 +85,23 @@ export default class guideSelection extends Component {
         } = this.state;
 
         return (
-            <div>
+            <div className='commentsWrapper'>
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
-                <div className="card">
-                    <h1>Sukurti maršrutą</h1>
-                    <br />
+                    <div className='comments'>
+                    <div className='commentTitleWrapper'>
+                        <h1 className='commentTitle'>Sukurti maršrutą</h1>
+
+                    </div>
                     <h5>Nudorykite maršruto pradžios datą:</h5>
                     <div className="input-group mb-3">
                         <input type="datetime-local" className="form-control" placeholder="Maršruto pradžia" aria-label="StartDate"
                             value={StartDate}
                             onChange={this.changeStartDate} />
                     </div>
-                    <div>
+                    <div className='check'>
                         <h5>Ar norite turėti gidą?</h5>
                     <input
                         type="checkbox"
@@ -117,12 +119,12 @@ export default class guideSelection extends Component {
 
                       }
                       </div>
-                    <button onClick={() =>this.createClick()}>Generuoti maršrutą</button>
+                    <button className='commentsButton' onClick={() =>this.createClick()}>Generuoti maršrutą</button>
                     <Link to={{
                                     pathname: '/paymentRoute',
                                     route: this.state.CreatedRoute,
                                     state: this.state.ClientId,
-                                }} >
+                                }} className='commentsButton'>
                         Pereiti prie apmokėjimo
                     </Link>
                     

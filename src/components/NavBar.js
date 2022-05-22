@@ -3,9 +3,16 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
     return (
       <nav className="navbar">
-        <h1>Atostogų planavimas Lietuvoje</h1>
-        <div className="links">
-          <Link to="/">Atgal į pradžią</Link>
+        <div className='navLeft'>
+          <div className='navbarTitleWrapper'>
+            <h1 className='navbarTitle'>Atostogų<br/>planavimas<br/>Lietuvoje</h1>
+          </div>
+        </div>
+
+        <div>
+          <Link to="/">
+            <h1 className='navbarTitle'>Atgal į pradžią</h1>
+          </Link>
         </div>
       </nav>
     );

@@ -42,9 +42,8 @@
 
 
 .leaflet-container{
-  width: 90%;
-  margin: 20px 50px 20px 20px;
-  height: 80vh;
+  width: 75vw;
+  height: 75vh;
 }
 .link{
   color: whitesmoke;
@@ -71,12 +70,11 @@ a:hover.link{
   color: whitesmoke;
   text-decoration: none;
 }
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-  margin: auto;
-  text-align: center;
+.comments{
+  background-color: #e9edc9;
+  margin-left: 50px;
+  padding: 25px;
+  border-radius: 25px;
 }
 
 .title {
@@ -87,4 +85,198 @@ a {
   text-decoration: none;
   font-size: 22px;
   color: black;
+}
+
+
+.loginWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.loginForm{
+  background-color: #e9edc9;
+  padding: 50px;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.loginInput{
+  margin-bottom: 20px;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fefae0;
+  box-shadow:0 1px 2px #aaa;
+}
+.loginSubmit{
+  background-color: #ccd5ae;
+  border-radius: 10px;
+  border: none;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 2px 4px #aaa;
+
+}
+.loginHeader{
+  margin-bottom: 40px;
+}
+.loginSubmit:hover{
+  background-color: #AAB977;
+  box-shadow: 0 4px 8px gray;
+}
+.navbar{
+  border-bottom: 1px solid #718042;
+  padding:10px;
+  margin-bottom: 20px;
+
+}
+.navbarTitle{
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Mono', monospace;
+  color: #718042;
+  display: inline;
+}
+.navbarTitleWrapper{
+  text-align: left;
+  box-shadow: 5px 0 0 0 #FDB913,
+              10px 0 0 0 #006A44,
+              15px 0 0 0 #C1272D; /* Border right */
+  padding-right: 20px;
+}
+.navLeft{
+  float:left;
+}
+.mapWrapper{
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.line{
+  border-left: 8px green;
+  height: 100px;
+}
+.mapWrapperClient{
+  display: flex;
+  justify-content: space-between;
+}
+.objectTitleBorder{
+  border-bottom: 2px solid #718042;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  padding-bottom: 10px;
+}
+.createButton{
+  background-color: #ccd5ae;
+  border-radius: 10px;
+  border: none;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 2px 4px #aaa;
+}
+
+.objectTitle{
+  font-size: 36px;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Mono', monospace;
+  color: #718042;
+  display: inline;
+}
+.objectTitleWrapper{
+  border-bottom: 2px solid #718042;
+  margin-bottom: 10px;
+}
+.objectDetailWrapper{
+  padding-right: 10px;
+  display: inline;
+}
+.objectDetailLabel{
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Mono', monospace;
+  color: #718042;
+  display: inline;
+}
+.objectInfoWrapper{
+  padding-left: 10px;
+}
+
+.commentsButton{
+  background-color: #ccd5ae;
+  border-radius: 10px;
+  border: none;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 2px 4px #aaa;
+  font-size: 16px;
+  margin-top: 50px;
+}
+.commentTitle{
+  font-size: 36px;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Mono', monospace;
+  color: #718042;
+}
+.commentsWrapper{
+  display: flex;
+  justify-content: center;
+}
+.commentValueWrapper{
+  background-color: #fefae0;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 15px;
+}
+.commentValue{
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Mono', monospace;
+  padding: 0;
+  margin: 0;
+}
+.icon{
+  margin-right: 5px;
+  margin-left: 20px;
+}
+
+.commentTitleWrapper{
+  border-bottom: 2px solid #718042;
+  margin-bottom: 20px;
+}
+.check{
+  margin-bottom: 50px;
+}
+.commentsWrapperWrap{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.commentsWrapperWrap > div{
+  margin-bottom: 25px;
+}
+.commentsButton2{
+  background-color: #ccd5ae;
+  border-radius: 10px;
+  border: none;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 2px 4px #aaa;
+  font-size: 16px;
+  display: block;
+  margin: 10px;
+}
+
+.buttonLamo{
+  background-color: transparent;
+  border: none
 }

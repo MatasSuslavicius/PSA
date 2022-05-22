@@ -31,10 +31,10 @@ export default class GuideProfile extends Component {
                 const response = await axios.get('https://localhost:7226/api/Guides/' + this.state.GuideId)
                 const data = await response.data
                 this.setState({
-                    
+
                     guide: data,
                     schedules: data.schedules,
-                    
+
                 })
             } catch (err) {
                 console.log(err)
@@ -42,7 +42,7 @@ export default class GuideProfile extends Component {
         }
 
     }
-    
+
     render() {
 
         const {
@@ -59,12 +59,12 @@ export default class GuideProfile extends Component {
         console.log(guide);
 
         return (
-            <div>
+            <div className='commentsWrapperWrap'>
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
-                <div className="card">
+                <div className='comments'>
                     <h1>{guide.name}  {guide.lastname}</h1>
                     <p className="title">El. paštas: {guide.email}</p>
                     <p className="title">Telefonas: {guide.phone}</p>
@@ -96,12 +96,12 @@ export default class GuideProfile extends Component {
                             </tr>)}
                         </tbody>
                     </table>
-                    
+
                     <p>
                         <Link to={{
-                                    pathname: '/guideEdit',
-                                    state: GuideId
-                                }} className='link'>Redaguoti profilį</Link>
+                            pathname: '/guideEdit',
+                            state: GuideId
+                        }} className='commentsButton2'>Redaguoti profilį</Link>
                     </p>
 
                 </div>

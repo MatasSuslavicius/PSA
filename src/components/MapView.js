@@ -19,7 +19,6 @@ const MapView = () => {
     }
     useEffect(() => getRepo(), []);
     return (
-
         <MapContainer center={[55.1694, 23.8813]} zoom={7} scrollWheelZoom={false}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

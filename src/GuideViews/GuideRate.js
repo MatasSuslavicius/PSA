@@ -24,9 +24,9 @@ export default class GuideRate extends Component {
                 const response = await axios.get('https://localhost:7226/api/Guides/' + this.state.GuideId + '/Score')
                 const data = await response.data
                 this.setState({
-                    
+
                     GuideRate: parseFloat(data).toFixed(2)
-                    
+
                 })
             } catch (err) {
                 console.log(err)
@@ -34,7 +34,7 @@ export default class GuideRate extends Component {
         }
 
     }
-    
+
     render() {
 
         const {
@@ -44,14 +44,14 @@ export default class GuideRate extends Component {
         console.log(GuideRate);
 
         return (
-            <div>
+            <div className='commentsWrapperWrap'>
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
-                <div className="card">
+                <div className="comments">
                     <h1>Jūsų įvertinimas</h1>
-                    <br/>
+                    <br />
                     <h3>{GuideRate}</h3>
                 </div>
             </div>

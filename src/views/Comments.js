@@ -48,42 +48,47 @@ async componentDidMount() {
         } = this.state;
         
         return (
-            <div>
+            <div className='commentsWrapper'>
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
-                <div className="card">
-                    <h1>{this.state.placeName}</h1>
-                    <h2>Komentarai:</h2>
-                    
-                    <br />
+                <div className='comments'>
+                    <div className='commentTitleWrapper'>
+                        <h1 className='commentTitle'>{"Objekto " + this.state.placeName + " komentarai:"}</h1>
+
+                    </div>
                     <table>
                         <tbody>
                             {comments.map(comment => <tr key={comment.id}>
-                                <td className="title">{comment.text}</td>
+
+                                <td>
+                                    <div className='commentValueWrapper'>
+
+                                        <p className='commentValue'>{comment.text}</p>
+                                    </div>
+                                </td>
+
+
                                 {(comment.userId == this.state.userId) &&
                                     <td><Link to={{
                                         pathname: '/commentEdit',
                                         state: comment,
                                         placeId: this.state.placeId,
                                         placeName: this.state.placeName
-                                    }} className='link'>Redaguoti</Link></td>
+                                    }} className=''>
+                                            <i className="icon fa fa-pencil-square-o"></i>
+                                        </Link></td>
                                 }
-
-
                             </tr>)}
                         </tbody>
                     </table>
-
-                    <p>
                         <Link to={{
                                     pathname: '/commentAdd',
                                     state: this.state.placeId,
                                     userId: this.state.userId,
                                     name: this.state.placeName
-                                }} className='link'>Pridėti komentarą</Link>
-                    </p>
+                                }} className='commentsButton'>Pridėti komentarą</Link>
                 </div>
             </div>
             

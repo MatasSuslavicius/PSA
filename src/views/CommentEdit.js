@@ -56,14 +56,12 @@ export default class GuideEdit extends Component {
         } = this.state;
 
         return (
-            <div>
+            <div className='commentsWrapper'>
+                    <div className='comments'>
+                    <div className='commentTitleWrapper'>
+                        <h1 className='commentTitle'>{"Redaguokite objektui " + this.state.placeName + " komentarą:"}</h1>
 
-                <div>
-                    <div className="modal-dialog modal-lg modal-dialog-centered">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title">Redaguoti komentarą</h5>
-                            </div>
+                    </div>
                             <div className="modal-body">
                                 <div className="input-group mb-3">
                                     <input type="text" className="form-control" placeholder="Komentaras" aria-label="Text"
@@ -74,17 +72,13 @@ export default class GuideEdit extends Component {
                                     pathname: '/comments',
                                     state: this.state.placeId,
                                     name: this.state.placeName,
-                                }} onClick={() => this.editClick()}>
+                                }} className='commentsButton' onClick={() => this.editClick()}>
                                    Redaguoti
                                 </Link>
                             </div>
 
                         </div>
                     </div>
-                </div>
-
-
-            </div>
         )
 
     }

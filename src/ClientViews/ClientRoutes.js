@@ -24,9 +24,9 @@ export default class ClientRoutes extends Component {
                 const response = await axios.get('https://localhost:7226/api/client/' + this.state.ClientId + '/routes')
                 const data = await response.data
                 this.setState({
-                    
+
                     routes: data
-                    
+
                 })
             } catch (err) {
                 console.log(err)
@@ -36,7 +36,7 @@ export default class ClientRoutes extends Component {
 
     }
 
-    
+
     render() {
         let place;
         const {
@@ -45,17 +45,15 @@ export default class ClientRoutes extends Component {
         console.log(routes);
 
         return (
-            <div>
+            <div className='commentsWrapperWrap'>
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
-                <div className="card">
-                    <h1>Jūsų maršrutai</h1>
-                    {routes.map(route => 
-                    <div key={route.id}>
-                        <br/>
-                        <table>
+                {routes.map(route =>
+                    <div className='comments' key={route.id}>
+                        <br />
+                        <table className='check'>
                             <thead>
                                 <tr>
                                     <th>
@@ -77,52 +75,56 @@ export default class ClientRoutes extends Component {
                                 </tr>
                             </tbody>
                         </table>
-                        <h3 className="title">Objektai maršrute:</h3>
-                         
-                           
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>
-                                        Pavadinimas
-                                    </th>
-                                    <th>
-                                        Kaina
-                                    </th>
-                                    <th>
-                                        Adresas
-                                    </th>
-                                </tr>
-                            </thead>
-                            {route.triprouteplaces.map(triprouteplace =>
-                            <tbody key={triprouteplace.placeId}>
-                                <tr>
-                                    <td>{triprouteplace.place.name}</td>
-                                    <td>{triprouteplace.place.price}</td>
-                                    <td>{triprouteplace.place.address}</td>
-                                </tr>
-                            </tbody>
-                            )}
-                        </table>
+
+                        {
+                            route.triprouteplaces.length > 0 ? (
+                                <div>
+                                    <h3 className="title">Objektai maršrute:</h3>
+                                    <table className='check'>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Pavadinimas
+                                                </th>
+                                                <th>
+                                                    Kaina
+                                                </th>
+                                                <th>
+                                                    Adresas
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        {route.triprouteplaces.map(triprouteplace =>
+                                            <tbody key={triprouteplace.placeId}>
+                                                <tr>
+                                                    <td>{triprouteplace.place.name}</td>
+                                                    <td>{triprouteplace.place.price}</td>
+                                                    <td>{triprouteplace.place.address}</td>
+                                                </tr>
+                                            </tbody>
+                                        )}
+                                    </table>
+                                </div>
+                            ) : (
+                                <h3 className="title">Maršrutui nėra priskirtų objektų</h3>)
+                        }
+
+
                         {
                             route.isGuideChosen == true ? (
-                                <h3 className="title">Jūsų maršrutui yra priskirtas gidas</h3>
+                                <h3 className="title check">Jūsų maršrutui yra priskirtas gidas</h3>
                             ) : (
-                                <h3 className="title">Jūsų maršrutui nėra priskirtas gidas</h3>
+                                <h3 className="title check">Jūsų maršrutui nėra priskirtas gidas</h3>
                             )
                         }
-                
-                        <Link className='link' to={{
-                                    pathname: '/routeDetailed',
-                                    route: route
-                                }}>Detalesnė informacija</Link>
-                        </div>
-                    )}
-                    
-                    
-                    
 
-                </div>
+
+                        <Link className='commentsButton' to={{
+                            pathname: '/routeDetailed',
+                            route: route
+                        }}>Detalesnė informacija</Link>
+                    </div>
+                )}
             </div>
         )
 

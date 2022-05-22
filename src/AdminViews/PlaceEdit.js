@@ -6,7 +6,7 @@ import './../components/table.css'
 
 export default class PlaceEdit extends Component {
     constructor(props) {
-        const placeId =  props.location.state;
+        const placeId = props.location.state;
         console.log(placeId)
         super(props);
         this.state = {
@@ -26,8 +26,8 @@ export default class PlaceEdit extends Component {
         if (this.state.DataisLoaded) {
 
             try {
-                
-                const response = await axios.get("https://localhost:7226/api/Places/"+ this.state.placeId)
+
+                const response = await axios.get("https://localhost:7226/api/Places/" + this.state.placeId)
                 const data = await response.data
                 this.setState({
                     PlaceName: data.name,
@@ -35,7 +35,7 @@ export default class PlaceEdit extends Component {
                     PlacePrice: data.price,
                     PlaceCoordinates: data.coordinates,
                     PlaceAddress: data.address,
-                    
+
                 })
             } catch (err) {
                 console.log(err)
@@ -44,7 +44,7 @@ export default class PlaceEdit extends Component {
 
     }
     createClick() {
-        fetch('https://localhost:7226/api/Places/'+ this.state.placeId, {
+        fetch('https://localhost:7226/api/Places/' + this.state.placeId, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -60,13 +60,12 @@ export default class PlaceEdit extends Component {
         })
             .then(res => res.json())
             .then((result) => {
-                if(result.errors != null)
-                {
+                if (result.errors != null) {
                     alert(result.title)
                 }
                 this._isMounted = false;
             }, (error) => {
-                
+
             })
 
     }
@@ -97,50 +96,44 @@ export default class PlaceEdit extends Component {
         } = this.state;
 
         return (
-            <div>
+            <div className='commentsWrapper'>
+                <div className='comments'>
+                    <div className='commentTitleWrapper'>
+                        <h1 className='commentTitle'>{"Redaguokite objektui " + this.state.placeName + " komentarą:"}</h1>
 
-                <div>
-                    <div className="modal-dialog modal-lg modal-dialog-centered">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title">Pridėti objektą</h5>
-                            </div>
-                            <div className="modal-body">
-                                <div className="input-group mb-3">
-                                    <input type="text" className="form-control" placeholder="PlaceName" aria-label="Name"
-                                        value={PlaceName}
-                                        onChange={this.changePlaceName} />
-                                </div>
-                                <div className="input-group mb-3">
-                                    <input type="text" className="form-control" placeholder="Aprašymas" aria-label="Description"
-                                        value={PlaceDescription}
-                                        onChange={this.changePlaceDescription} />
-                                </div>
-                                <div className="input-group mb-3">
-                                    <input type="text" className="form-control" placeholder="Kaina" aria-label="Price"
-                                        value={PlacePrice}
-                                        onChange={this.changePlacePrice} />
-                                </div>
-                                <div className="input-group mb-3">
-                                    <input type="text" className="form-control" placeholder="Koordinatės" aria-label="Coordinates"
-                                        value={PlaceCoordinates}
-                                        onChange={this.changePlaceCoordinates} />
-                                </div>
-                                <div className="input-group mb-3">
-                                    <input type="text" className="form-control" placeholder="Adresas" aria-label="Address"
-                                        value={PlaceAddress}
-                                        onChange={this.changePlaceAddress} />
-                                </div>
-                                <Link to="/" onClick={() => this.createClick()}>
-                                   Redaguoti
-                                </Link>
-                            </div>
-
-                        </div>
                     </div>
+                    <div className="modal-body">
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" placeholder="PlaceName" aria-label="Name"
+                                value={PlaceName}
+                                onChange={this.changePlaceName} />
+                        </div>
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" placeholder="Aprašymas" aria-label="Description"
+                                value={PlaceDescription}
+                                onChange={this.changePlaceDescription} />
+                        </div>
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" placeholder="Kaina" aria-label="Price"
+                                value={PlacePrice}
+                                onChange={this.changePlacePrice} />
+                        </div>
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" placeholder="Koordinatės" aria-label="Coordinates"
+                                value={PlaceCoordinates}
+                                onChange={this.changePlaceCoordinates} />
+                        </div>
+                        <div className="input-group mb-3">
+                            <input type="text" className="form-control" placeholder="Adresas" aria-label="Address"
+                                value={PlaceAddress}
+                                onChange={this.changePlaceAddress} />
+                        </div>
+                        <Link to="/" className='commentsButton' onClick={() => this.createClick()}>
+                            Redaguoti
+                        </Link>
+                    </div>
+
                 </div>
-
-
             </div>
         )
 
