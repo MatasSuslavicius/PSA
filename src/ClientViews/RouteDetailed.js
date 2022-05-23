@@ -97,9 +97,11 @@ export default class ClientRoutes extends Component {
                             )
                         }
                         {
-                            this.state.route.isGuideInformed == true ?
-                                <h4 className='check' style={{ color: "green" }}>Gidas Informuotas</h4>
-                                : <h4 className='check' style={{ color: "red" }}>Gidas Neinformuotas!</h4>}
+                            (this.state.route.isGuideInformed == true && this.state.route.isGuideChosen == true) &&
+                                <h4 className='check' style={{ color: "green" }}>Gidas Informuotas</h4>}
+                                {
+                            (this.state.route.isGuideInformed == false && this.state.route.isGuideChosen == true) &&
+                                <h4 className='check' style={{ color: "red" }}>Gidas Neinformuotas!</h4>}
                         {this.state.route.isGuideChosen == true &&
                             <div>
                                 <h4>Gido informacija:</h4>
